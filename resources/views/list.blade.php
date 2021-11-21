@@ -33,7 +33,10 @@
                     <td class="text-center" >{{ $provider->tel }}</td>
                     <td class="text-center">
                         <span class="editProvider" id="{{ $provider->id }}">
-                            <i class="fas fa-edit"></i> 
+                            <i class="fas fa-edit m-1"></i> 
+                        </span>
+                        <span class="deleteProvider" id="{{ $provider->id }}">
+                            <i class="fas fa-trash m-1"></i>
                         </span>
                     </td>
                 </tr>
@@ -42,12 +45,16 @@
     </table>
 
     <script>
+        $("#add-provider").click(function(){
+            $('#content').load("provider/create");
+        });
+
         $(".editProvider").click(function(){
             $("#content").load("/provider/edit/"+this.id);
         });
 
-        $("#add-provider").click(function(){
-            $('#content').load("provider/create");
+        $(".deleteProvider").click(function(){
+            $("#content").load("/provider/delete/"+this.id);
         });
 
     </script>

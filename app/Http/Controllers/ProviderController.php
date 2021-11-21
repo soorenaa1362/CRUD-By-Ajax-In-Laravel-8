@@ -68,6 +68,12 @@ class ProviderController extends Controller
     }
 
 
+    public function delete($provider_id=null)
+    {
+        if($provider_id > 0){
+            Provider::destroy($provider_id);
+        }
+    }
 
 
 }
