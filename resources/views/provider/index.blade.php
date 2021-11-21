@@ -1,14 +1,14 @@
-@extends('master')
+@extends('provider.master')
 
 @section('content')
     
     <div class="row">
         <div class="col-md-3" style="background-color: #71bdca;">
-            <h6 class="py-3 px-2">منوی اصلی</h6>
+            <h6 class="py-3 px-2">کلینیک پردیس</h6>
             <ul class="py-3">
                 <li class="nav-item active">                    
                     <i class="fas fa-file-alt" style="color: #eee;"></i>
-                    <span id="provider-list" style="color: #eee;"> لیست سرویس دهنده ها </span>                    
+                    <span id="provider-list" style="color: #eee;" class="btn"> سرویس دهنده ها </span>                    
                 </li>
             </ul>
         </div>

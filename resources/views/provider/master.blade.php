@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">    
-    <title>صفحه اصلی</title>
+    <link rel="stylesheet" href="{{ asset('css/persian-datepicker.css') }}">    
+    <title>کلینیک پردیس</title>
 </head>
 <body>
-    <div class="container py-5">
+    <div class="container-fluid px-5 py-3">
         @yield('content')
     </div>
 </body>

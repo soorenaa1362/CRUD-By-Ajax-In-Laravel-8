@@ -1,4 +1,4 @@
-@extends('master')
+@extends('provider.master')
 
 @section('content')
     <span class="btn btn-success" id="add-provider">
@@ -11,6 +11,7 @@
                 <th scope="col" class="text-center">ردیف</th>
                 <th scope="col" class="text-center">نام و نام خانوادگی</th>
                 <th scope="col" class="text-center">کد ملی</th>
+                <th scope="col" class="text-center">تاریخ تولد</th>
                 <th scope="col" class="text-center">وضعیت تاهل</th>
                 <th scope="col" class="text-center">تلفن</th>
                 <th scope="col" class="text-center">عملیات</th>
@@ -19,18 +20,20 @@
         <tbody>
             @foreach($providers as $key => $provider)
                 <tr>
-                    <td class="text-center" >{{ $key+1 }}</td>
                     <td class="text-center" >
-                        @if ($provider->sex == 1)
-                            خانم
-                        @else
-                            آقای
-                        @endif
-                        {{ $provider->fname }} {{ $provider->lname }}                        
+                        {{ $key+1 }}
+                    </td>
+                    <td class="text-center" >                        
+                        {{ $provider->getSexTitle() }} {{ $provider->fname }} {{ $provider->lname }}                        
                     </td>
                     <td class="text-center" >{{ $provider->nationalcode }}</td>
-                    <td class="text-center" >{{ $provider->married }}</td>
-                    <td class="text-center" >{{ $provider->tel }}</td>
+                    <td class="text-center" >{{ $provider->getdateJalali() }}</td>
+                    <td class="text-center" >
+                        {{ $provider->getMarriedTitle() }}
+                    </td>
+                    <td class="text-center" >
+                        {{ $provider->tel }}
+                    </td>
                     <td class="text-center">
                         <span class="editProvider" id="{{ $provider->id }}">
                             <i class="fas fa-edit m-1"></i> 
@@ -49,7 +52,7 @@
             $('#content').load("provider/create");
         });
 
-        $(".editProvider").click(function(){
+        $(".editProvider").click(function(){            
             $("#content").load("/provider/edit/"+this.id);
         });
 

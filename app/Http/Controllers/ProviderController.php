@@ -2,25 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Provider;
 use Illuminate\Http\Request;
+use Morilog\Jalali\Jalalian;
 
 class ProviderController extends Controller
 {
     public function index()
     {
-        return view('index');
+        return view('provider.index');
     }
 
 
     public function create()
     {
-        return view('create');
+        return view('provider.create');
     }
 
 
     public function store(Request $request)
     {         
+        $myDate=Carbon::createFromTimestamp($request->birthday)->format('Y/m/d');
+        $myDateJalali=Jalalian::fromDateTime($myDate)->format('Y/m/d');
+
         $id = $request->id; 
         if($id > 0){ 
             $provider = Provider::where('id', $id)->first(); 
@@ -28,7 +33,7 @@ class ProviderController extends Controller
             { $provider->fname = $request->fname;
                 $provider->lname = $request->lname;
                 $provider->nationalcode = $request->nationalcode;
-                $provider->birthday = $request->birthday;
+                $provider->birthday = $myDate;
                 $provider->sex = $request->sex;
                 $provider->married = $request->married;
                 $provider->tel = $request->tel;
@@ -41,7 +46,7 @@ class ProviderController extends Controller
             $provider->fname = $request->fname;
             $provider->lname = $request->lname;
             $provider->nationalcode = $request->nationalcode;
-            $provider->birthday = $request->birthday;
+            $provider->birthday = $myDate;
             $provider->sex = $request->sex;
             $provider->married = $request->married;
             $provider->tel = $request->tel;
@@ -55,7 +60,7 @@ class ProviderController extends Controller
     public function list()
     {        
         $providers = Provider::all();
-        return view('list', compact('providers'));
+        return view('provider.list', compact('providers'));
     }
 
 
@@ -63,7 +68,7 @@ class ProviderController extends Controller
     {
         if($provider_id > 0){
             $provider = Provider::where('id', $provider_id)->first();
-            return view('edit', compact('provider'));
+            return view('provider.edit', compact('provider'));
         }
     }
 

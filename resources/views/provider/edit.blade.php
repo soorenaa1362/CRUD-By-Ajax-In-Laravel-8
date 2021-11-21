@@ -1,4 +1,4 @@
-@extends('master')
+@extends('provider.master')
 
 @section('content')
     <div class="card">
@@ -27,18 +27,24 @@
                     </div>
                     <div class="col-md-4 mt-2">
                         <label for="sex">جنسیت :</label> 
-                        <input type="text" class="form-control mt-1" id="sex" name="sex" 
-                            value="{{ $provider->sex }}">                                        
+                        <!-- <input type="text" class="form-control mt-1" id="sex" name="sex">                                         -->
+                        <select class="form-control" name="sex" id="sex">                            
+                            <option value="0">آقا</option>
+                            <option value="1">خانم</option>
+                        </select>
                     </div>
                     <div class="col-md-4 mt-2">
                         <label for="birthday">تاریخ تولد :</label> 
                         <input type="text" class="form-control mt-1" id="birthday" name="birthday" 
-                            value="{{ $provider->birthday }}">                                        
+                            value="{{ $provider->getdateJalali() }}">                                        
                     </div>
                     <div class="col-md-4 mt-2">
                         <label for="married">وضعیت تاهل :</label> 
-                        <input type="text" class="form-control mt-1" id="married" name="married" 
-                            value="{{ $provider->married }}">                                        
+                        <!-- <input type="text" class="form-control mt-1" id="married" name="married">                                         -->
+                        <select class="form-control" name="married" id="married">
+                            <option value="0">مجرد</option>
+                            <option value="1">متاهل</option>
+                        </select>
                     </div>
                     <div class="col-md-4 mt-2">
                         <label for="tel">تلفن :</label> 
@@ -47,8 +53,17 @@
                     </div>
                     <div class="col-md-4 mt-2">
                         <label for="user_id">شخص مورد نظر :</label> 
-                        <input type="text" class="form-control mt-1" id="user_id" name="user_id" 
-                            value="{{ $provider->user_id }}">                                        
+                        <!-- <input type="text" class="form-control mt-1" id="user_id" name="user_id">                                         -->
+                        <select class="form-control" name="mainId" id="user_id">
+                            <option value="1">خودم</option>
+                            <option value="2">همسر</option>
+                            <option value="3">فرزند</option>
+                            <option value="4">پدر</option>
+                            <option value="5">مادر</option>
+                            <option value="6">برادر</option>
+                            <option value="7">خواهر</option>
+                            <option value="8">غیره</option>
+                        </select>
                     </div>
                 </div>
                 <input class="btn btn-primary mt-4" type="submit" value="ویرایش">
@@ -82,10 +97,8 @@
                 user_id: user_id,
                 id: id,
                 _token: _token,
-            }
-
-            console.log(data);
-            
+            }            
+                        
             $.ajax({
                 type: "POST",        
                 dataType: "json", 
