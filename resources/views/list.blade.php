@@ -1,6 +1,10 @@
 @extends('master')
 
 @section('content')
+    <span class="btn btn-success" id="add-provider">
+        افزودن سرویس دهنده
+    </span>
+    <br> <br>
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -9,6 +13,7 @@
                 <th scope="col" class="text-center">کد ملی</th>
                 <th scope="col" class="text-center">وضعیت تاهل</th>
                 <th scope="col" class="text-center">تلفن</th>
+                <th scope="col" class="text-center">عملیات</th>
             </tr>
         </thead>
         <tbody>
@@ -26,8 +31,25 @@
                     <td class="text-center" >{{ $provider->nationalcode }}</td>
                     <td class="text-center" >{{ $provider->married }}</td>
                     <td class="text-center" >{{ $provider->tel }}</td>
+                    <td class="text-center">
+                        <span class="editProvider" id="{{ $provider->id }}">
+                            <i class="fas fa-edit"></i> 
+                        </span>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+
+    <script>
+        $(".editProvider").click(function(){
+            $("#content").load("/provider/edit/"+this.id);
+        });
+
+        $("#add-provider").click(function(){
+            $('#content').load("provider/create");
+        });
+
+    </script>
+
 @endsection

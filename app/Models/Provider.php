@@ -17,6 +17,7 @@ class Provider extends Model
         'sex',
         'birthday',
         'married',
-        'tel'
+        'tel',
+        'user_id'
     ];
 }
