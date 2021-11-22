@@ -12,7 +12,7 @@
                 </li>
                 <li class="nav-item active">                    
                     <i class="fas fa-bed" style="color: #eee;"></i>
-                    <span id="provider-list" style="color: #eee;" class="btn"> بیماران </span>                    
+                    <span id="patient-list" style="color: #eee;" class="btn"> بیماران </span>                    
                 </li>
             </ul>
         </div>
@@ -26,6 +26,10 @@
     <script>
         $("#provider-list").click(function(){
             $("#content").load("/provider/list");
+        });
+
+        $("#patient-list").click(function(){            
+            $("#content").load("/patient/list");
         });
     </script>
 

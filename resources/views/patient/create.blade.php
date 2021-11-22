@@ -21,34 +21,30 @@
                         <label for="nationalcode">کد ملی :</label> 
                         <input type="text" class="form-control mt-1" id="nationalcode" name="nationalcode">                                        
                     </div>
-                    <div class="col-md-4 mt-3">
-                        <label for="sex">جنسیت :</label>
-                        <div class="row">
-                            <div class="form-check col-md-8 mt-1">
-                                <input class="" type="radio" name="sex" id="sex" value="0" checked>                            
-                                    خانم
-                                </input>                            
-                            </div>
-                            <div class="form-check col-md-4 mt-1">
-                                <input class="" type="radio" name="sex" id="sex" value="1">                            
-                                    آقا
-                                </input>                            
-                            </div>
-                        </div>
+                    <div class="col-md-4 mt-2">
+                        <label for="sex">جنسیت :</label> 
+                        <!-- <input type="text" class="form-control mt-1" id="sex" name="sex">                                         -->
+                        <select class="form-control mt-1" name="sex" id="sex">
+                            <option value="0">خانم</option>
+                            <option value="1">آقا</option>
+                        </select>
                     </div>
                     <div class="col-md-4 mt-2">
                         <label for="birthday">تاریخ تولد :</label> 
                         <!-- <input type="text" class="form-control mt-1" id="birthday" name="birthday">                                         -->                        
-                        <input type="text" class="form-control mt-1"
+                        <input type="text" class="form-control round addpo"
                             id="birthday"
                             name="birthday" 
                             required
-                            value="{{(isset($provider)) ? $provider->getdateJalali() : ''}}">
+                            value="
+                                {{(isset($provider)) ? $provider->getdateJalali() : ''}}"/>
                         <input id="date" name="date" type="hidden"
-                            value="{{(isset($provider)) ? $provider->getdateTimestamp() : ''}}">
+                            value="
+                            {{(isset($provider)) ? $provider->getdateTimestamp() : ''}}">
                     </div>
                     <div class="col-md-4 mt-2">
                         <label for="married">وضعیت تاهل :</label> 
+                        <!-- <input type="text" class="form-control mt-1" id="married" name="married">                                         -->
                         <select class="form-control mt-1" name="married" id="married">
                             <option value="0">مجرد</option>
                             <option value="1">متاهل</option>
@@ -57,7 +53,21 @@
                     <div class="col-md-4 mt-2">
                         <label for="tel">تلفن :</label> 
                         <input type="text" class="form-control mt-1" id="tel" name="tel">                                        
-                    </div>                                     
+                    </div>
+                    <div class="col-md-4 mt-2">
+                        <label for="user_id">شخص مورد نظر :</label> 
+                        <!-- <input type="text" class="form-control mt-1" id="user_id" name="user_id">                                         -->
+                        <select class="form-control mt-1" name="mainId" id="user_id">
+                            <option value="1">خودم</option>
+                            <option value="2">همسر</option>
+                            <option value="3">فرزند</option>
+                            <option value="4">پدر</option>
+                            <option value="5">مادر</option>
+                            <option value="6">برادر</option>
+                            <option value="7">خواهر</option>
+                            <option value="8">غیره</option>
+                        </select>
+                    </div>
                 </div>
                 <input class="btn btn-primary mt-4" type="submit" value="ذخیره">
             </form>

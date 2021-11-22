@@ -24,6 +24,12 @@ class Provider extends Model
     ];
 
 
+    public function User()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    
+
     const sex =
         [
             0   => [   'id'    =>  0     ,   'title'   =>  'آقای'  ],

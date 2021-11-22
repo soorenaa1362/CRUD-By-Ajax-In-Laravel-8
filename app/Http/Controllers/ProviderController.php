@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Provider;
 use Illuminate\Http\Request;
 use Morilog\Jalali\Jalalian;
@@ -24,7 +25,7 @@ class ProviderController extends Controller
     public function store(Request $request)
     {         
         $myDate=Carbon::createFromTimestamp($request->birthday)->format('Y/m/d');
-        $myDateJalali=Jalalian::fromDateTime($myDate)->format('Y/m/d');
+        $myDateJalali=Jalalian::fromDateTime($myDate)->format('Y/m/d');        
 
         $id = $request->id; 
         if($id > 0){ 

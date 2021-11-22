@@ -25,20 +25,13 @@
                         <input type="text" class="form-control mt-1" id="nationalcode" name="nationalcode" 
                             value="{{ $provider->nationalcode }}">                                        
                     </div>
-                    <div class="col-md-4 mt-3">
-                        <label for="sex">جنسیت :</label>
-                        <div class="row">
-                            <div class="form-check col-md-8 mt-1">
-                                <input class="" type="radio" name="sex" id="sex" value="0" checked>                            
-                                    خانم
-                                </input>                            
-                            </div>
-                            <div class="form-check col-md-4 mt-1">
-                                <input class="" type="radio" name="sex" id="sex" value="1">                            
-                                    آقا
-                                </input>                            
-                            </div>
-                        </div>
+                    <div class="col-md-4 mt-2">
+                        <label for="sex">جنسیت :</label> 
+                        <!-- <input type="text" class="form-control mt-1" id="sex" name="sex">                                         -->
+                        <select class="form-control mt-1" name="sex" id="sex">                            
+                            <option value="0">آقا</option>
+                            <option value="1">خانم</option>
+                        </select>
                     </div>
                     <div class="col-md-4 mt-2">
                         <label for="birthday">تاریخ تولد :</label> 

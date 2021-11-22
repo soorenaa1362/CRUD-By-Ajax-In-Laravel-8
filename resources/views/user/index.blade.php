@@ -7,6 +7,10 @@
             <h6 class="py-3 px-2">کلینیک پردیس</h6>
             <ul class="py-3">
                 <li class="nav-item active">                    
+                    <i class="fas fa-user" style="color: #eee;"></i>
+                    <span id="user-list" style="color: #eee;" class="btn"> کاربران </span>                    
+                </li>
+                <li class="nav-item active">                    
                     <i class="fas fa-medkit" style="color: #eee;"></i>
                     <span id="provider-list" style="color: #eee;" class="btn"> سرویس دهنده ها </span>                    
                 </li>
@@ -24,8 +28,16 @@
     </div>
 
     <script>
+        $("#user-list").click(function(){
+            $("#content").load("/user/list");
+        });
+
         $("#provider-list").click(function(){
             $("#content").load("/provider/list");
+        });
+
+        $("#patient-list").click(function(){
+            $("#content").load("/patient/list");
         });
     </script>
 
